@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Carrosserie Lénine – Tôlerie, peinture et mécanique à Saint-Denis</title>
+<meta name="description" content="Carrosserie Lénine, Saint-Denis : tôlerie, peinture et mécanique. Devis et conseils gratuits, plus de 10 ans d'expérience. 61 rue Jules Vallès.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17191d; --graphite:#23262c; --muted:#5d636d; --line:#e5e3df; --paper:#faf8f5; --white:#fff;
+    --coral:#ff5a36; --coral-dark:#e2431f; --coral-soft:#fff0eb;
+    --teal:#0f7c7a; --gold:#f2b134;
+    --r:18px;
+    --head:"Bricolage Grotesque", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --body:"Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:78px}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding-left:20px;padding-right:20px}
+  h1,h2,h3{font-family:var(--head)}
+
+  .ribbon{background:var(--ink);color:#e7e3dd;text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 16px}
+
+  header{background:rgba(250,248,245,.94);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .swatch{display:grid;grid-template-columns:1fr 1fr;width:40px;height:40px;border-radius:10px;overflow:hidden;flex:none}
+  .swatch i:nth-child(1){background:var(--coral)} .swatch i:nth-child(2){background:var(--gold)}
+  .swatch i:nth-child(3){background:var(--teal)} .swatch i:nth-child(4){background:var(--graphite)}
+  .logo-name{font-family:var(--head);font-weight:800;font-size:1.15rem;line-height:1.05}
+  .logo-sub{font-size:.72rem;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  .nav-links{display:none;gap:24px;font-weight:600;font-size:.94rem}
+  .nav-links a{text-decoration:none;color:var(--muted)}
+  .nav-links a:hover{color:var(--ink)}
+  @media(min-width:900px){.nav-links{display:flex}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--body);font-weight:700;font-size:1rem;text-decoration:none;border-radius:999px;padding:14px 24px;transition:background .2s,transform .15s;white-space:nowrap}
+  .btn:active{transform:scale(.98)}
+  .btn-coral{background:var(--coral);color:#fff}
+  .btn-coral:hover{background:var(--coral-dark)}
+  .btn-ink{background:var(--ink);color:#fff}
+  .btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+  .btn-line:hover{background:var(--ink);color:#fff}
+  .nav .btn{padding:10px 16px;font-size:.92rem}
+  .nav .btn span{display:none}
+  @media(min-width:520px){.nav .btn span{display:inline}}
+
+  /* HERO */
+  .hero{padding-top:44px;padding-bottom:56px;position:relative;overflow:hidden}
+  @media(min-width:900px){.hero{padding-top:76px;padding-bottom:90px}}
+  .hero-grid{display:grid;gap:36px;align-items:center}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr}}
+  .trio{display:flex;flex-wrap:wrap;gap:8px}
+  .trio span{font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:6px 12px}
+  .trio .a{background:var(--coral-soft);color:var(--coral-dark)}
+  .trio .b{background:#fdf3dc;color:#9a6b07}
+  .trio .c{background:#e2f2f1;color:var(--teal)}
+  h1{font-weight:800;font-size:clamp(2.4rem,7vw,4.2rem);line-height:1;letter-spacing:-.03em;margin:18px 0 18px}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--coral),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:1.1rem;max-width:32em}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px;max-width:520px}
+  .fact{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+  .fact b{display:block;font-family:var(--head);font-weight:800;font-size:1.35rem;line-height:1.1}
+  .fact small{color:var(--muted);font-size:.8rem;line-height:1.3;display:block}
+
+  .panel{position:relative;border-radius:28px;background:var(--graphite);aspect-ratio:1/1.05;overflow:hidden;box-shadow:0 30px 60px -28px rgba(0,0,0,.5)}
+  .panel .stripes{position:absolute;inset:0;background:
+    linear-gradient(115deg,transparent 0 38%,var(--coral) 38% 52%,var(--gold) 52% 62%,var(--teal) 62% 72%,transparent 72%)}
+  .panel .shine{position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.18),transparent 40%)}
+  .panel svg{position:absolute;left:8%;right:8%;bottom:20%;width:84%}
+  .panel .tag{position:absolute;left:18px;right:18px;bottom:18px;background:var(--white);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px}
+  .panel .tag .s{color:#f5a700;letter-spacing:1px}
+  .panel .tag b{font-family:var(--head);font-size:1.6rem;line-height:1}
+  .panel .tag small{display:block;color:var(--muted);font-size:.82rem}
+
+  section{padding:64px 0}
+  @media(min-width:900px){section{padding:88px 0}}
+  .kick{font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--coral-dark)}
+  h2{font-weight:800;font-size:clamp(1.9rem,4.8vw,2.8rem);line-height:1.05;letter-spacing:-.025em;margin:8px 0 12px}
+  .intro{color:var(--muted);max-width:40em;margin-bottom:34px;font-size:1.05rem}
+
+  .trades{background:var(--white)}
+  .trade-grid{display:grid;gap:16px}
+  @media(min-width:860px){.trade-grid{grid-template-columns:repeat(3,1fr)}}
+  .trade{border-radius:var(--r);padding:28px;border:1px solid var(--line);position:relative;overflow:hidden;background:var(--paper)}
+  .trade::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px}
+  .trade.t1::before{background:var(--coral)} .trade.t2::before{background:var(--gold)} .trade.t3::before{background:var(--teal)}
+  .trade .num{font-family:var(--head);font-weight:800;font-size:.9rem;color:var(--muted)}
+  .trade h3{font-size:1.6rem;font-weight:800;margin:6px 0 8px;letter-spacing:-.01em}
+  .trade p{color:var(--muted)}
+
+  .care{display:grid;gap:16px}
+  @media(min-width:860px){.care{grid-template-columns:repeat(3,1fr)}}
+  .care-item{display:flex;gap:16px;align-items:flex-start}
+  .care-item .ic{width:48px;height:48px;flex:none;border-radius:14px;background:var(--coral-soft);display:grid;place-items:center}
+  .care-item h3{font-size:1.15rem;font-weight:700;margin-bottom:4px}
+  .care-item p{color:var(--muted);font-size:.96rem}
+  .src{color:var(--muted);font-size:.85rem;margin-top:22px}
+
+  .reviews{background:var(--ink);color:#f1eee9}
+  .reviews .kick{color:var(--gold)}
+  .rev-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:30px}
+  .score{display:flex;align-items:center;gap:14px}
+  .score .n{font-family:var(--head);font-weight:800;font-size:4rem;line-height:1}
+  .score .s{color:var(--gold);font-size:1.2rem;letter-spacing:1px}
+  .score small{display:block;color:#a8a39b}
+  .cards{display:grid;gap:14px}
+  @media(min-width:700px){.cards{grid-template-columns:repeat(2,1fr)}}
+  .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:24px}
+  .card .s{color:var(--gold);letter-spacing:1px}
+  .card p{font-size:1.05rem;margin:10px 0 12px}
+  .card footer{color:#a8a39b;font-size:.88rem;font-weight:600}
+  .g-link{display:inline-block;margin-top:22px;font-weight:700;color:#fff}
+
+  .contact-grid{display:grid;gap:28px}
+  @media(min-width:900px){.contact-grid{grid-template-columns:1.1fr .9fr;align-items:center}}
+  .free{display:inline-flex;align-items:center;gap:8px;background:#e2f2f1;color:var(--teal);font-weight:700;border-radius:999px;padding:7px 14px;font-size:.9rem;margin-bottom:12px}
+  .info{display:grid;gap:12px;margin-top:6px;color:var(--muted)}
+  .info div{display:flex;gap:12px;align-items:flex-start}
+  .info a{color:var(--ink);font-weight:600}
+  .c-actions{display:grid;gap:12px}
+  .c-actions .btn{padding:17px 20px;font-size:1.05rem}
+
+  footer.site{padding:26px 0;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1.3fr 1fr;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--line)}
+  .dock .btn{padding:14px 10px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Maquette – proposition non officielle</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <span class="swatch" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span><span class="logo-name">Carrosserie Lénine</span><br><span class="logo-sub">Saint-Denis</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#metiers">Nos métiers</a>
+      <a href="#avis">Avis</a>
+      <a href="#devis">Devis gratuit</a>
+    </nav>
+    <a class="btn btn-coral" href="tel:+33789308712">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>07 89 30 87 12</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="trio"><span class="a">Tôlerie</span><span class="b">Peinture</span><span class="c">Mécanique</span></div>
+      <h1>Votre voiture <em>comme avant</em> l'accrochage.</h1>
+      <p class="lead">Carrosserie Lénine répare la tôle, refait la peinture et s'occupe de la mécanique de votre véhicule, à Saint-Denis.</p>
+      <div class="cta">
+        <a class="btn btn-coral" href="tel:+33789308712">Appeler le 07 89 30 87 12</a>
+        <a class="btn btn-line" href="sms:+33789308712">Envoyer une photo par SMS</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>10 ans+</b><small>d'expérience</small></div>
+        <div class="fact"><b>Gratuits</b><small>devis et conseils</small></div>
+        <div class="fact"><b>4,8 ★</b><small>31 avis Google</small></div>
+      </div>
+    </div>
+
+    <div class="panel" aria-hidden="true">
+      <div class="stripes"></div>
+      <div class="shine"></div>
+      <svg viewBox="0 0 320 120" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 86 L34 58 Q42 44 60 42 L120 38 Q140 18 176 16 L214 16 Q238 18 256 40 L290 48 Q304 52 304 68 L304 86"/>
+        <path d="M128 40 L150 22 M214 18 L232 40"/>
+        <path d="M20 86 L58 86 M106 86 L218 86 M266 86 L304 86"/>
+        <circle cx="82" cy="88" r="20"/><circle cx="242" cy="88" r="20"/>
+        <circle cx="82" cy="88" r="7" fill="#fff"/><circle cx="242" cy="88" r="7" fill="#fff"/>
+      </svg>
+      <div class="tag">
+        <b>4,8</b>
+        <span><span class="s">★★★★★</span><small>31 avis sur Google</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trades" id="metiers">
+  <div class="wrap">
+    <span class="kick">Nos métiers</span>
+    <h2>Carrosserie, peinture, mécanique</h2>
+    <p class="intro">Les trois métiers au même endroit, pour l'entretien et la réparation de votre véhicule.</p>
+    <div class="trade-grid">
+      <div class="trade t1"><span class="num">01</span><h3>Tôlerie</h3><p>Réparation de carrosserie.</p></div>
+      <div class="trade t2"><span class="num">02</span><h3>Peinture</h3><p>Remise en peinture de votre véhicule.</p></div>
+      <div class="trade t3"><span class="num">03</span><h3>Mécanique</h3><p>Entretien de votre véhicule.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kick">Ce que disent les clients</span>
+    <h2>Le travail bien fait, jusqu'au bout</h2>
+    <div class="care" style="margin-top:30px">
+      <div class="care-item">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e2431f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></span>
+        <div><h3>Une finition soignée</h3><p>« Travail propre et soigné », « finition au top ».</p></div>
+      </div>
+      <div class="care-item">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e2431f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l3-3M14 4l6 6-9 9-6-6z"/><path d="M14 4l2-2 6 6-2 2"/></svg></span>
+        <div><h3>Voiture rendue propre</h3><p>Les clients remarquent que le véhicule est nettoyé à l'intérieur et à l'extérieur.</p></div>
+      </div>
+      <div class="care-item">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e2431f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span>
+        <div><h3>Environ une semaine</h3><p>D'après les avis, les réparations sont généralement terminées en une semaine.</p></div>
+      </div>
+    </div>
+    <p class="src">D'après les avis Google de Carrosserie Lénine.</p>
+  </div>
+</section>
+
+<section class="reviews" id="avis">
+  <div class="wrap">
+    <div class="rev-top">
+      <div>
+        <span class="kick">Avis Google</span>
+        <h2 style="margin-bottom:14px">31 clients ont donné leur avis</h2>
+        <div class="score">
+          <span class="n">4,8</span>
+          <span><span class="s">★★★★★</span><small>sur Google</small></span>
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="s">★★★★★</span><p>« J'ai fait réparer ma Golf chez Carrosserie Lénine après un sinistre, et je suis très satisfait du résultat. Le travail est propre et soigné… »</p><footer>Victar · avis Google</footer></div>
+      <div class="card"><span class="s">★★★★★</span><p>« Excellent garage, je recommande fortement niveau qualité, prix et sérieux, il y a rien à dire. »</p><footer>Rym E. · avis Google</footer></div>
+      <div class="card"><span class="s">★★★★★</span><p>« Le travail était exceptionnel, finition au top, le véhicule était nettoyé même à… »</p><footer>Ihdene M. · avis Google</footer></div>
+      <div class="card"><span class="s">★★★★★</span><p>« Un garage d'une sérénité incroyable, des professionnels (des vrais) qui bossent calmement et sérieusement. »</p><footer>Hanane H. · avis Google</footer></div>
+    </div>
+    <a class="g-link" href="https://www.google.com/maps/search/?api=1&query=Carrosserie+L%C3%A9nine+61+Rue+Jules+Vall%C3%A8s+Saint-Denis" target="_blank" rel="noopener">Lire les 31 avis sur Google →</a>
+  </div>
+</section>
+
+<section id="devis">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="free">✓ Devis et conseils gratuits</span>
+      <h2>Un choc, une rayure&nbsp;?</h2>
+      <p class="intro" style="margin-bottom:18px">Envoyez une photo des dégâts par SMS ou appelez directement pour votre devis.</p>
+      <div class="info">
+        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>61 Rue Jules Vallès, 93380 Saint-Denis</span></div>
+        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:carrosserielenine@gmail.com">carrosserielenine@gmail.com</a></div>
+        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Fermé entre 12h et 13h30 · horaires à jour sur Google Maps</span></div>
+      </div>
+    </div>
+    <div class="c-actions">
+      <a class="btn btn-coral" href="tel:+33789308712">Appeler le 07 89 30 87 12</a>
+      <a class="btn btn-ink" href="sms:+33789308712">Envoyer une photo par SMS</a>
+      <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Carrosserie+L%C3%A9nine+61+Rue+Jules+Vall%C3%A8s+Saint-Denis" target="_blank" rel="noopener">Itinéraire Google Maps</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span>© Carrosserie Lénine · Saint-Denis</span>
+    <span>Maquette réalisée par Syed – 06 18 37 44 98</span>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-coral" href="tel:+33789308712">Appeler</a>
+  <a class="btn btn-ink" href="sms:+33789308712">Photo / SMS</a>
+</div>
+
+</body>
+</html>
