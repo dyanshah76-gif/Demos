@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Garage95 Cardoso – Garage automobile à Sannois</title>
+<meta name="description" content="Garage95 Cardoso, Sannois : restauration et réparation de véhicules anciens et récents, entretien et réparation toutes marques. 22 rue des Maugis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f7efe1; --sand:#e9d6b4; --wood:#b07d4f; --wood-dark:#7a5230;
+    --ink:#1b1712; --muted:#6a5f52; --line:#e2d4bd;
+    --orange:#ff6a1f; --orange-dark:#e2540c; --mustard:#ffc23a; --teal:#1f8a83;
+    --r:18px;
+    --head:"Anton", Impact, "Arial Narrow", sans-serif;
+    --body:"Work Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:78px}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding-left:20px;padding-right:20px}
+  h1,h2,h3{font-family:var(--head);font-weight:400;text-transform:uppercase;letter-spacing:.01em}
+
+  .ribbon{background:var(--ink);color:var(--sand);text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 16px}
+
+  header{background:rgba(247,239,225,.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50;border-bottom:2px solid var(--ink)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:10px;padding-bottom:10px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo-mark{width:44px;height:44px;border-radius:10px;background:var(--ink);display:grid;place-items:center;flex:none}
+  .logo-name{font-family:var(--head);font-size:1.35rem;line-height:1;letter-spacing:.02em}
+  .logo-name b{font-weight:400;color:var(--orange)}
+  .logo-sub{font-size:.72rem;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .nav-links{display:none;gap:24px;font-weight:700;font-size:.92rem}
+  .nav-links a{text-decoration:none;color:var(--muted)}
+  .nav-links a:hover{color:var(--ink)}
+  @media(min-width:900px){.nav-links{display:flex}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--body);font-weight:800;font-size:1rem;text-decoration:none;border-radius:12px;padding:14px 22px;transition:transform .15s,box-shadow .15s,background .2s;white-space:nowrap;border:2px solid var(--ink)}
+  .btn:active{transform:translate(2px,2px);box-shadow:none !important}
+  .btn-orange{background:var(--orange);color:#fff;box-shadow:4px 4px 0 var(--ink)}
+  .btn-orange:hover{background:var(--orange-dark)}
+  .btn-cream{background:var(--cream);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+  .btn-mustard{background:var(--mustard);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+  .nav .btn{padding:9px 14px;font-size:.9rem;box-shadow:3px 3px 0 var(--ink)}
+  .nav .btn span{display:none}
+  @media(min-width:520px){.nav .btn span{display:inline}}
+
+  /* HERO */
+  .hero{padding-top:40px;padding-bottom:56px;overflow:hidden}
+  @media(min-width:900px){.hero{padding-top:70px;padding-bottom:90px}}
+  .hero-grid{display:grid;gap:36px;align-items:center}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
+  .stamp{display:inline-flex;align-items:center;gap:8px;background:var(--mustard);border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:800;font-size:.86rem;transform:rotate(-2deg)}
+  h1{font-size:clamp(3rem,10vw,5.6rem);line-height:.92;margin:20px 0 18px}
+  h1 .o{color:var(--orange)}
+  h1 .t{color:var(--teal)}
+  .lead{color:var(--muted);font-size:1.12rem;max-width:32em}
+  .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+  .rating{display:inline-flex;align-items:center;gap:12px;margin-top:28px;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:10px 16px}
+  .rating .n{font-family:var(--head);font-size:2rem;line-height:1}
+  .rating .s{color:var(--orange);letter-spacing:1px}
+  .rating small{display:block;color:var(--muted);font-size:.84rem}
+
+  .badge-card{position:relative;background:var(--wood);border:3px solid var(--ink);border-radius:26px;aspect-ratio:1/1;display:grid;place-items:center;box-shadow:10px 10px 0 var(--ink);overflow:hidden;
+    background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0 3px,transparent 3px 22px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 2px,transparent 2px 9px)}
+  .badge-card svg{width:78%}
+  .sticker{position:absolute;background:var(--mustard);border:2px solid var(--ink);border-radius:999px;padding:8px 14px;font-weight:800;font-size:.85rem}
+  .sticker.s1{top:18px;right:-6px;transform:rotate(6deg)}
+  .sticker.s2{bottom:20px;left:-4px;transform:rotate(-5deg);background:var(--teal);color:#fff}
+
+  section{padding:64px 0}
+  @media(min-width:900px){section{padding:88px 0}}
+  .kick{display:inline-block;font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-dark)}
+  h2{font-size:clamp(2.2rem,6vw,3.4rem);line-height:.98;margin:8px 0 14px}
+  .intro{color:var(--muted);max-width:40em;margin-bottom:34px;font-size:1.05rem}
+
+  .duo{background:var(--ink);color:var(--cream)}
+  .duo .intro{color:#bfb39f}
+  .duo .kick{color:var(--mustard)}
+  .duo-grid{display:grid;gap:16px}
+  @media(min-width:800px){.duo-grid{grid-template-columns:1fr 1fr}}
+  .era{border-radius:22px;padding:30px;border:2px solid var(--cream)}
+  .era.old{background:var(--wood-dark)}
+  .era.new{background:var(--teal)}
+  .era h3{font-size:2.2rem;line-height:1;margin-bottom:10px}
+  .era p{color:#f3e7d3}
+  .era .tag{display:inline-block;background:var(--cream);color:var(--ink);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 12px;margin-bottom:14px}
+
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:800px){.svc-grid{grid-template-columns:repeat(4,1fr)}}
+  .svc{background:#fff;border:2px solid var(--ink);border-radius:16px;padding:18px 16px;display:flex;flex-direction:column;gap:10px;transition:transform .15s,box-shadow .15s}
+  .svc:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+  .svc .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;border:2px solid var(--ink)}
+  .svc:nth-child(3n+1) .ic{background:var(--orange)}
+  .svc:nth-child(3n+2) .ic{background:var(--mustard)}
+  .svc:nth-child(3n) .ic{background:var(--teal)}
+  .svc b{font-size:.98rem;line-height:1.3}
+
+  .rev{background:var(--sand)}
+  .rev-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:30px}
+  .big{display:flex;align-items:center;gap:14px}
+  .big .n{font-family:var(--head);font-size:4.4rem;line-height:1}
+  .big .s{color:var(--orange);font-size:1.3rem;letter-spacing:1px}
+  .big small{display:block;color:var(--muted);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:7px 14px;font-weight:700}
+  .chip i{font-style:normal;color:var(--orange-dark);margin-left:6px}
+  .cards{display:grid;gap:16px}
+  @media(min-width:860px){.cards{grid-template-columns:repeat(3,1fr)}}
+  .card{background:#fff;border:2px solid var(--ink);border-radius:20px;padding:24px;box-shadow:6px 6px 0 var(--ink)}
+  .card:nth-child(2){transform:rotate(1deg)}
+  .card .s{color:var(--orange);letter-spacing:1px}
+  .card p{font-size:1.04rem;margin:10px 0 12px}
+  .card footer{color:var(--muted);font-weight:700;font-size:.9rem}
+  .g-link{display:inline-block;margin-top:26px;font-weight:800}
+
+  .contact-card{background:var(--orange);color:#fff;border:3px solid var(--ink);border-radius:28px;padding:38px 26px;display:grid;gap:26px;box-shadow:10px 10px 0 var(--ink)}
+  @media(min-width:900px){.contact-card{grid-template-columns:1.2fr .8fr;align-items:center;padding:54px}}
+  .contact-card h2{margin-top:0}
+  .contact-card p{color:#fff3ea}
+  .addr{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-weight:600}
+  .c-actions{display:grid;gap:14px}
+  .c-actions .btn{padding:17px 20px;font-size:1.05rem}
+
+  footer.site{padding:30px 0 26px;color:var(--muted);font-size:.88rem}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1.3fr 1fr;gap:12px;padding:10px 14px calc(12px + env(safe-area-inset-bottom));background:var(--cream);border-top:2px solid var(--ink)}
+  .dock .btn{padding:13px 10px;box-shadow:3px 3px 0 var(--ink)}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Maquette – proposition non officielle</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none" stroke="#ffc23a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 4h6v6h-6zM15 10h10v4H15zM17 14h6v14l-3 4-3-4z"/><path d="M6 16l9 6M34 16l-9 6M6 30l9-6M34 30l-9-6"/></svg>
+      </span>
+      <span><span class="logo-name">Garage95 <b>Cardoso</b></span><br><span class="logo-sub">Sannois</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#anciens">Anciens & récents</a>
+      <a href="#services">Services</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-orange" href="tel:+33612303736">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>06 12 30 37 36</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="stamp">🔧 Toutes marques · Sannois</span>
+      <h1>Votre <span class="o">ancienne</span> comme votre <span class="t">récente</span>, entre de bonnes mains.</h1>
+      <p class="lead">Garage95 Cardoso restaure et répare les véhicules anciens et récents, et s'occupe de l'entretien et des réparations, toutes marques.</p>
+      <div class="cta">
+        <a class="btn btn-orange" href="tel:+33612303736">Appeler le 06 12 30 37 36</a>
+        <a class="btn btn-cream" href="sms:+33612303736">Prendre rendez-vous par SMS</a>
+      </div>
+      <div class="rating">
+        <span class="n">4,7</span>
+        <span><span class="s">★★★★★</span><small>33 avis sur Google</small></span>
+      </div>
+    </div>
+
+    <div class="badge-card" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="#1b1712" stroke-width="9">
+          <path d="M30 60l50 34M170 60l-50 34M30 150l50-34M170 150l-50-34"/>
+        </g>
+        <g stroke="#f7efe1" stroke-width="5">
+          <path d="M30 60l50 34M170 60l-50 34M30 150l50-34M170 150l-50-34"/>
+        </g>
+        <circle cx="26" cy="57" r="11" fill="#f7efe1" stroke="#1b1712" stroke-width="4"/>
+        <circle cx="174" cy="57" r="11" fill="#f7efe1" stroke="#1b1712" stroke-width="4"/>
+        <circle cx="26" cy="153" r="11" fill="#f7efe1" stroke="#1b1712" stroke-width="4"/>
+        <circle cx="174" cy="153" r="11" fill="#f7efe1" stroke="#1b1712" stroke-width="4"/>
+        <rect x="88" y="16" width="24" height="26" rx="3" fill="#f7efe1" stroke="#1b1712" stroke-width="4"/>
+        <rect x="80" y="42" width="40" height="16" rx="3" fill="#1b1712"/>
+        <path d="M88 58h24v70l-12 16-12-16z" fill="#f7efe1" stroke="#1b1712" stroke-width="4"/>
+        <rect x="40" y="96" width="120" height="26" rx="5" fill="#1b1712"/>
+        <text x="100" y="115" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="17" fill="#f7efe1" letter-spacing="1">GARAGE95</text>
+      </svg>
+      <span class="sticker s1">Toutes marques</span>
+      <span class="sticker s2">Conseils avisés</span>
+    </div>
+  </div>
+</section>
+
+<section class="duo" id="anciens">
+  <div class="wrap">
+    <span class="kick">La spécialité</span>
+    <h2>Anciennes et récentes</h2>
+    <p class="intro">Un garagiste passionné, qui s'occupe aussi bien de la voiture de tous les jours que du véhicule ancien.</p>
+    <div class="duo-grid">
+      <div class="era old">
+        <span class="tag">Véhicules anciens</span>
+        <h3>Restauration</h3>
+        <p>Restauration et réparation de véhicules anciens.</p>
+      </div>
+      <div class="era new">
+        <span class="tag">Véhicules récents</span>
+        <h3>Entretien & réparation</h3>
+        <p>Entretien et réparation, toutes marques.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <span class="kick">Services</span>
+    <h2>Tout l'entretien de votre voiture</h2>
+    <p class="intro">Pour toute information, appelez ou envoyez un SMS.</p>
+    <div class="svc-grid">
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5M17 7V5M8 13h3M15 11v4M13 13h4"/></svg></span><b>Batterie</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-6-11-6-11z"/></svg></span><b>Vidange</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span><b>Freins</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v5M12 16v5M3 12h5M16 12h5"/></svg></span><b>Pneus</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="9" rx="1"/><path d="M17 11h2l2 2v2h-4M7 8V6h6v2"/></svg></span><b>Diagnostic moteur</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1L19.1 4.9"/></svg></span><b>Climatisation</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><b>Systèmes électriques</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l5-3M12 12v6M12 12l-5-3"/></svg></span><b>Direction & suspension</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M6 8v8M8 6h8M18 8v4H6"/></svg></span><b>Transmission</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5v3H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><b>Carrosserie</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M8 4v16"/></svg></span><b>Filtre d'habitacle</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg></span><b>Restauration</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="rev" id="avis">
+  <div class="wrap">
+    <div class="rev-top">
+      <div>
+        <span class="kick">Avis Google</span>
+        <h2 style="margin-bottom:14px">Ce qu'ils en disent</h2>
+        <div class="big"><span class="n">4,7</span><span><span class="s">★★★★★</span><small>33 avis sur Google</small></span></div>
+      </div>
+      <div class="chips"><span class="chip">véhicules<i>3</i></span><span class="chip">mécanicien<i>2</i></span></div>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="s">★★★★★</span><p>« De la gentillesse à l'état pur et un professionnalisme excellent, je recommande à 100 %. Un mécanicien passionné… »</p><footer>Killian H. · avis Google</footer></div>
+      <div class="card"><span class="s">★★★★★</span><p>« Très bon contact pour une prise de rendez-vous et des conseils avisés pour mon véhicule. »</p><footer>Marco Z. · avis Google</footer></div>
+      <div class="card"><span class="s">★★★★★</span><p>« J'ai effectué 2 fois mes réparations dans ce garage et rien à dire… Les prix sont abordables… »</p><footer>Sophie B. · avis Google</footer></div>
+    </div>
+    <a class="g-link" href="https://www.google.com/maps/search/?api=1&query=GARAGE95_CARDOSO+22+Rue+des+Maugis+95110+Sannois" target="_blank" rel="noopener">Lire les 33 avis sur Google →</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>Une question sur votre voiture&nbsp;?</h2>
+        <p>Pour toute information, n'hésitez pas à appeler ou à envoyer un SMS.</p>
+        <div class="addr">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span>22 Rue des Maugis, 95110 Sannois<br>Fermé entre 12h et 14h · horaires sur Google Maps</span>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="btn btn-mustard" href="tel:+33612303736">Appeler le 06 12 30 37 36</a>
+        <a class="btn btn-cream" href="sms:+33612303736">Envoyer un SMS</a>
+        <a class="btn btn-cream" href="https://www.google.com/maps/search/?api=1&query=GARAGE95_CARDOSO+22+Rue+des+Maugis+95110+Sannois" target="_blank" rel="noopener">Itinéraire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span>© Garage95 Cardoso · Sannois</span>
+    <span>Maquette réalisée par Syed – 06 18 37 44 98</span>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-orange" href="tel:+33612303736">Appeler</a>
+  <a class="btn btn-mustard" href="sms:+33612303736">SMS</a>
+</div>
+
+</body>
+</html>
