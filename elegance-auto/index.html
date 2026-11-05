@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Élégance Auto – Carrosserie, peinture et mécanique à Sarcelles</title>
+<meta name="description" content="Garage Élégance Auto, Sarcelles : carrosserie, peinture, mécanique, diagnostic valise dès 50 €, dépannage et remorquage même le dimanche. 6 rue de l'Escouvrier.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#120d24; --night-2:#1d1638; --violet:#6c3cff; --violet-dark:#5527e6; --violet-soft:#efe9ff;
+    --pink:#ff4f8b; --gold:#f6c86a;
+    --ink:#15112a; --muted:#625d78; --line:#e6e3f0; --bg:#fff; --soft:#f7f5fc;
+    --r:20px;
+    --head:"Syne", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --body:"Outfit", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:78px}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding-left:20px;padding-right:20px}
+  h1,h2,h3{font-family:var(--head)}
+
+  .ribbon{background:linear-gradient(90deg,var(--violet),var(--pink));color:#fff;text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 16px}
+
+  header{background:rgba(18,13,36,.92);backdrop-filter:blur(10px);position:sticky;top:0;z-index:50;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo-mark{width:42px;height:42px;border-radius:50%;background:conic-gradient(from 200deg,var(--violet),var(--pink),var(--gold),var(--violet));display:grid;place-items:center;flex:none}
+  .logo-mark span{width:34px;height:34px;border-radius:50%;background:var(--night);display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:1.05rem}
+  .logo-name{font-family:var(--head);font-weight:800;font-size:1.12rem;line-height:1.05}
+  .logo-sub{font-size:.74rem;color:#b9b2d6;font-weight:500}
+  .nav-links{display:none;gap:24px;font-weight:500;font-size:.94rem}
+  .nav-links a{text-decoration:none;color:#c9c3e4}
+  .nav-links a:hover{color:#fff}
+  @media(min-width:900px){.nav-links{display:flex}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--body);font-weight:700;font-size:1rem;text-decoration:none;border-radius:999px;padding:14px 24px;transition:transform .15s,box-shadow .2s,background .2s;white-space:nowrap}
+  .btn:active{transform:scale(.98)}
+  .btn-grad{background:linear-gradient(90deg,var(--violet),var(--pink));color:#fff;box-shadow:0 10px 24px -10px rgba(255,79,139,.7)}
+  .btn-grad:hover{box-shadow:0 14px 30px -10px rgba(255,79,139,.85)}
+  .btn-glass{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3)}
+  .btn-glass:hover{background:rgba(255,255,255,.14)}
+  .btn-violet{background:var(--violet);color:#fff}
+  .btn-violet:hover{background:var(--violet-dark)}
+  .btn-white{background:#fff;color:var(--ink)}
+  .nav .btn{padding:10px 16px;font-size:.92rem}
+  .nav .btn span{display:none}
+  @media(min-width:520px){.nav .btn span{display:inline}}
+
+  /* HERO */
+  .hero{background:var(--night);color:#fff;position:relative;overflow:hidden}
+  .glow{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none}
+  .glow.g1{width:420px;height:420px;background:var(--violet);right:-120px;top:-120px}
+  .glow.g2{width:320px;height:320px;background:var(--pink);left:-140px;bottom:-140px;opacity:.4}
+  .hero-inner{position:relative;z-index:1;padding-top:46px;padding-bottom:56px;display:grid;gap:34px}
+  @media(min-width:900px){.hero-inner{grid-template-columns:1.1fr .9fr;align-items:center;padding-top:82px;padding-bottom:92px}}
+  .five{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:6px 14px 6px 6px;font-weight:600;font-size:.9rem}
+  .five b{background:var(--gold);color:var(--ink);border-radius:999px;padding:3px 10px;font-family:var(--head)}
+  h1{font-weight:800;font-size:clamp(2.3rem,6.6vw,4rem);line-height:1.08;letter-spacing:-.02em;margin:20px 0 18px}
+  h1 .g{background:linear-gradient(90deg,#b49bff,var(--pink),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:#cbc5e6;font-size:1.1rem;max-width:33em}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+  .perks{display:grid;gap:12px}
+  .perk{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:16px 18px;backdrop-filter:blur(6px)}
+  .perk .ic{width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center}
+  .perk:nth-child(1) .ic{background:var(--violet)}
+  .perk:nth-child(2) .ic{background:var(--pink)}
+  .perk:nth-child(3) .ic{background:var(--gold)}
+  .perk b{display:block;font-size:1.05rem}
+  .perk small{color:#bdb6da;font-size:.9rem}
+
+  section{padding:64px 0}
+  @media(min-width:900px){section{padding:88px 0}}
+  .kick{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
+  h2{font-weight:800;font-size:clamp(1.9rem,4.8vw,2.8rem);line-height:1.08;letter-spacing:-.02em;margin:8px 0 12px}
+  .intro{color:var(--muted);max-width:40em;margin-bottom:34px;font-size:1.05rem}
+
+  .trio{display:grid;gap:16px}
+  @media(min-width:860px){.trio{grid-template-columns:repeat(3,1fr)}}
+  .tri{border-radius:24px;padding:28px;color:#fff;position:relative;overflow:hidden;min-height:180px;display:flex;flex-direction:column;justify-content:flex-end}
+  .tri.t1{background:linear-gradient(140deg,#6c3cff,#8d63ff)}
+  .tri.t2{background:linear-gradient(140deg,#ff4f8b,#ff7aa7)}
+  .tri.t3{background:linear-gradient(140deg,#1d1638,#3a2d6b)}
+  .tri .n{position:absolute;top:18px;right:22px;font-family:var(--head);font-weight:800;font-size:3.6rem;opacity:.18;line-height:1}
+  .tri h3{font-size:1.7rem;font-weight:800;margin-bottom:6px}
+  .tri p{opacity:.9}
+
+  .svc-wrap{background:var(--soft)}
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:860px){.svc-grid{grid-template-columns:repeat(4,1fr)}}
+  .svc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,box-shadow .2s}
+  .svc:hover{transform:translateY(-3px);box-shadow:0 16px 30px -20px rgba(108,60,255,.55)}
+  .svc .ic{width:42px;height:42px;border-radius:12px;background:var(--violet-soft);display:grid;place-items:center}
+  .svc b{font-size:.98rem;line-height:1.3}
+  .svc.feat{grid-column:1/-1;background:linear-gradient(90deg,var(--night),var(--night-2));color:#fff;border:0;flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:22px 24px}
+  @media(min-width:860px){.svc.feat{grid-column:span 2}}
+  .svc.feat small{display:block;color:#bdb6da;font-size:.9rem;font-weight:400}
+  .svc.feat .price{font-family:var(--head);font-weight:800;font-size:1.6rem;color:var(--gold);line-height:1}
+  .svc.feat .price span{display:block;font-family:var(--body);font-size:.75rem;color:#bdb6da;font-weight:500}
+
+  .tow{background:var(--night);color:#fff;border-radius:32px;padding:40px 26px;display:grid;gap:24px;position:relative;overflow:hidden}
+  @media(min-width:900px){.tow{grid-template-columns:1.2fr .8fr;align-items:center;padding:56px}}
+  .tow .glow{opacity:.45}
+  .tow > *{position:relative;z-index:1}
+  .tow > .glow{position:absolute;z-index:0}
+  .tow .badge{display:inline-block;background:var(--gold);color:var(--ink);font-weight:800;border-radius:999px;padding:5px 12px;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}
+  .tow h2{color:#fff;margin-top:0}
+  .tow p{color:#cbc5e6}
+
+  .rev-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:30px}
+  .big{display:flex;align-items:center;gap:14px}
+  .big .n{font-family:var(--head);font-weight:800;font-size:4.4rem;line-height:1;background:linear-gradient(90deg,var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .big .s{color:#f5a700;font-size:1.3rem;letter-spacing:1px}
+  .big small{display:block;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--violet-soft);color:var(--violet-dark);border-radius:999px;padding:8px 14px;font-weight:600}
+  .chip i{font-style:normal;color:var(--pink);margin-left:6px;font-weight:700}
+  .cards{display:grid;gap:16px}
+  @media(min-width:800px){.cards{grid-template-columns:1fr 1fr}}
+  .card{border:1px solid var(--line);border-radius:22px;padding:26px;background:#fff;position:relative}
+  .card::before{content:"";position:absolute;left:26px;right:26px;top:0;height:4px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,var(--violet),var(--pink))}
+  .card .s{color:#f5a700;letter-spacing:1px}
+  .card p{font-size:1.06rem;margin:10px 0 12px}
+  .card footer{color:var(--muted);font-weight:600;font-size:.9rem}
+  .g-link{display:inline-block;margin-top:22px;font-weight:700;color:var(--violet)}
+
+  .contact{display:grid;gap:28px}
+  @media(min-width:900px){.contact{grid-template-columns:1fr 1fr;align-items:center}}
+  .info{display:grid;gap:12px;color:var(--muted);margin-top:8px}
+  .info div{display:flex;gap:12px;align-items:flex-start}
+  .c-actions{display:grid;gap:12px}
+  .c-actions .btn{padding:17px 20px;font-size:1.05rem}
+  .btn-out{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+
+  footer.site{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.88rem}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1.3fr 1fr;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(21,17,42,.08)}
+  .dock .btn{padding:14px 10px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Maquette – proposition non officielle</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <span class="logo-mark"><span>É</span></span>
+      <span><span class="logo-name">Élégance Auto</span><br><span class="logo-sub">Sarcelles</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#metiers">Nos métiers</a>
+      <a href="#services">Services</a>
+      <a href="#remorquage">Remorquage</a>
+      <a href="#avis">Avis</a>
+    </nav>
+    <a class="btn btn-grad" href="tel:+33616623800">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>06 16 62 38 00</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" style="padding:0">
+  <span class="glow g1"></span><span class="glow g2"></span>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="five"><b>5,0 ★</b> 29 avis Google · Sarcelles</span>
+      <h1>Carrosserie, peinture, mécanique : votre voiture <span class="g">en toute élégance.</span></h1>
+      <p class="lead">Élégance Auto répare, repeint et entretient votre voiture à Sarcelles. Et si elle ne roule plus, le garage s'occupe aussi du remorquage, même le dimanche.</p>
+      <div class="cta">
+        <a class="btn btn-grad" href="tel:+33616623800">Appeler le 06 16 62 38 00</a>
+        <a class="btn btn-glass" href="sms:+33616623800">Envoyer une photo par SMS</a>
+      </div>
+    </div>
+
+    <div class="perks">
+      <div class="perk">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5v3H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
+        <span><b>Prêt d'un véhicule</b><small>Souligné par les clients pendant les réparations</small></span>
+      </div>
+      <div class="perk">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <span><b>Réparations rapides</b><small>Parfois en 24h, d'après les avis</small></span>
+      </div>
+      <div class="perk">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#15112a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="14" height="10" rx="2"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
+        <span><b>Remorquage toute distance</b><small>Dépannage même le dimanche</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metiers">
+  <div class="wrap">
+    <span class="kick">Nos métiers</span>
+    <h2>Trois métiers, un seul garage</h2>
+    <p class="intro">De la petite rayure à la panne moteur.</p>
+    <div class="trio">
+      <div class="tri t1"><span class="n">01</span><h3>Carrosserie</h3><p>Réparation de carrosserie.</p></div>
+      <div class="tri t2"><span class="n">02</span><h3>Peinture</h3><p>Une peinture refaite avec soin.</p></div>
+      <div class="tri t3"><span class="n">03</span><h3>Mécanique</h3><p>Entretien, diagnostic et réparations.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="svc-wrap" id="services">
+  <div class="wrap">
+    <span class="kick">Services</span>
+    <h2>Entretien et réparation</h2>
+    <p class="intro">Toutes les prestations du garage, avec un prix annoncé pour le diagnostic.</p>
+    <div class="svc-grid">
+      <div class="svc feat">
+        <div><b>Diagnostic moteur</b><small>Diagnostic valise professionnel avec impression du rapport détaillé</small></div>
+        <div class="price"><span>à partir de</span>50 €</div>
+      </div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6c3cff" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span><b>Freins & dépannage freins</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6c3cff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-6-11-6-11z"/></svg></span><b>Vidange</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6c3cff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5M17 7V5M8 13h3M15 11v4M13 13h4"/></svg></span><b>Batterie</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6c3cff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1L19.1 4.9"/></svg></span><b>Climatisation</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6c3cff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l5-3M12 12v6M12 12l-5-3"/></svg></span><b>Direction & suspension</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6c3cff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M6 8v8M8 6h8M18 8v4H6"/></svg></span><b>Transmission</b></div>
+      <div class="svc"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6c3cff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M8 4v16"/></svg></span><b>Filtre d'habitacle</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="remorquage">
+  <div class="wrap">
+    <div class="tow">
+      <span class="glow g1"></span>
+      <div>
+        <span class="badge">Nouveau</span>
+        <h2>Remorquage toute distance</h2>
+        <p>Votre voiture ne démarre plus ? Élégance Auto propose le dépannage et le remorquage, même le dimanche, à prix très raisonnable.</p>
+      </div>
+      <div class="c-actions">
+        <a class="btn btn-grad" href="tel:+33616623800">Appeler pour un remorquage</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="avis" style="padding-top:0">
+  <div class="wrap">
+    <div class="rev-top">
+      <div>
+        <span class="kick">Avis Google</span>
+        <h2 style="margin-bottom:14px">Ce que disent les clients</h2>
+        <div class="big"><span class="n">5,0</span><span><span class="s">★★★★★</span><small>29 avis sur Google</small></span></div>
+      </div>
+      <div class="chips">
+        <span class="chip">prix<i>6</i></span>
+        <span class="chip">confiance<i>4</i></span>
+        <span class="chip">transparence<i>2</i></span>
+        <span class="chip">honnête<i>2</i></span>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="s">★★★★★</span><p>« Très satisfait du travail réalisé par Élégance Auto. La peinture blanche de ma voiture a été refaite avec beaucoup de soin, le résultat est impeccable ! »</p><footer>Lionel M. · avis Google</footer></div>
+      <div class="card"><span class="s">★★★★★</span><p>« Je recommande vivement Élégance Auto. Un garage très sérieux où le professionnalisme est au… »</p><footer>Alain S. · avis Google</footer></div>
+    </div>
+    <a class="g-link" href="https://www.google.com/maps/search/?api=1&query=Garage+%C3%A9l%C3%A9gance+auto+6+Rue+de+l%27Escouvrier+95200+Sarcelles" target="_blank" rel="noopener">Lire les 29 avis sur Google →</a>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap contact">
+    <div>
+      <span class="kick">Contact</span>
+      <h2>Parlons de votre voiture</h2>
+      <p class="intro" style="margin-bottom:10px">Appelez, ou envoyez une photo par SMS pour un devis.</p>
+      <div class="info">
+        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>6 Rue de l'Escouvrier, 95200 Sarcelles</span></div>
+        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg><span>Carte bancaire et paiement sans contact acceptés</span></div>
+        <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Horaires à jour sur Google Maps</span></div>
+      </div>
+    </div>
+    <div class="c-actions">
+      <a class="btn btn-grad" href="tel:+33616623800">Appeler le 06 16 62 38 00</a>
+      <a class="btn btn-violet" href="sms:+33616623800">Envoyer une photo par SMS</a>
+      <a class="btn btn-out" href="https://www.google.com/maps/search/?api=1&query=Garage+%C3%A9l%C3%A9gance+auto+6+Rue+de+l%27Escouvrier+95200+Sarcelles" target="_blank" rel="noopener">Itinéraire Google Maps</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span>© Garage Élégance Auto · Sarcelles</span>
+    <span>Maquette réalisée par Syed – 06 18 37 44 98</span>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-grad" href="tel:+33616623800">Appeler</a>
+  <a class="btn btn-violet" href="sms:+33616623800">Photo / SMS</a>
+</div>
+
+</body>
+</html>
