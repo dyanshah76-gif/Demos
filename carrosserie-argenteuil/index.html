@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Carrosserie d'Argenteuil – Carrosserie, peinture et mécanique</title>
+<meta name="description" content="Carrosserie d'Argenteuil, 1 rue Guy Môquet : réparation de carrosserie, peinture et mécanique. 4,8 sur Google. Appelez le 06 21 76 95 91.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cobalt:#2443ff; --cobalt-dark:#1630d6; --cobalt-soft:#eef1ff;
+    --lime:#c8f43a; --lime-dark:#a9d61c;
+    --ink:#0e1230; --muted:#5b6080; --line:#e4e6f2; --bg:#ffffff; --soft:#f6f7fc;
+    --r:20px;
+    --head:"Space Grotesk", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --body:"DM Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:78px}
+  @media(min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding-left:20px;padding-right:20px}
+  h1,h2,h3{font-family:var(--head)}
+
+  .ribbon{background:var(--lime);color:var(--ink);text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 16px}
+
+  header{background:rgba(255,255,255,.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .mark{width:42px;height:42px;border-radius:13px;background:var(--cobalt);display:grid;place-items:center;flex:none;position:relative;overflow:hidden}
+  .mark::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--lime);right:-5px;bottom:-5px}
+  .mark span{font-family:var(--head);font-weight:700;color:#fff;font-size:1.1rem;position:relative;z-index:1}
+  .logo-name{font-family:var(--head);font-weight:700;font-size:1.08rem;line-height:1.1}
+  .logo-sub{font-size:.75rem;color:var(--muted);font-weight:600}
+  .nav-links{display:none;gap:24px;font-weight:600;font-size:.94rem}
+  .nav-links a{text-decoration:none;color:var(--muted)}
+  .nav-links a:hover{color:var(--cobalt)}
+  @media(min-width:900px){.nav-links{display:flex}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--body);font-weight:700;font-size:1rem;text-decoration:none;border-radius:999px;padding:14px 24px;transition:background .2s,transform .15s;white-space:nowrap}
+  .btn:active{transform:scale(.98)}
+  .btn-cobalt{background:var(--cobalt);color:#fff}
+  .btn-cobalt:hover{background:var(--cobalt-dark)}
+  .btn-lime{background:var(--lime);color:var(--ink)}
+  .btn-lime:hover{background:var(--lime-dark)}
+  .btn-white{background:#fff;color:var(--ink)}
+  .btn-out{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.5)}
+  .btn-out:hover{background:rgba(255,255,255,.1)}
+  .nav .btn{padding:10px 16px;font-size:.92rem}
+  .nav .btn span{display:none}
+  @media(min-width:520px){.nav .btn span{display:inline}}
+
+  /* HERO */
+  .hero{background:var(--cobalt);color:#fff;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.07);right:-180px;top:-200px}
+  .hero::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:var(--lime);opacity:.9;left:-160px;bottom:-200px}
+  .hero-inner{position:relative;z-index:1;padding-top:44px;padding-bottom:56px;display:grid;gap:34px}
+  @media(min-width:900px){.hero-inner{grid-template-columns:1.1fr .9fr;align-items:center;padding-top:80px;padding-bottom:90px}}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:600}
+  .pill b{color:var(--lime)}
+  h1{font-weight:700;font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.14;letter-spacing:-.03em;margin:18px 0 18px}
+  h1 mark{background:var(--lime);color:var(--ink);padding:0 .14em;border-radius:.18em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .lead{color:#dfe4ff;font-size:1.1rem;max-width:32em}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+  .stack{display:grid;gap:12px}
+  .bubble{background:#fff;color:var(--ink);border-radius:22px;padding:18px 20px;box-shadow:0 20px 40px -20px rgba(0,0,0,.45);max-width:420px}
+  .bubble .who{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .bubble .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;font-size:.9rem;flex:none}
+  .bubble .who b{font-size:.95rem}
+  .bubble .who small{display:block;color:#f5a700;letter-spacing:1px;font-size:.8rem}
+  .bubble p{font-size:.98rem}
+  .bubble.b2{margin-left:auto}
+  @media(min-width:900px){.bubble.b2{margin-left:40px}}
+  .score-chip{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);border-radius:999px;padding:10px 18px;font-weight:700;width:max-content}
+  .score-chip span{font-family:var(--head);font-size:1.4rem}
+
+  section{padding:64px 0}
+  @media(min-width:900px){section{padding:88px 0}}
+  .kick{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);background:var(--cobalt-soft);border-radius:999px;padding:5px 12px}
+  h2{font-weight:700;font-size:clamp(1.9rem,4.8vw,2.8rem);line-height:1.05;letter-spacing:-.025em;margin:14px 0 12px}
+  .intro{color:var(--muted);max-width:40em;margin-bottom:34px;font-size:1.05rem}
+
+  .svc-grid{display:grid;gap:16px}
+  @media(min-width:760px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.svc-grid{grid-template-columns:repeat(4,1fr)}}
+  .svc{border-radius:var(--r);padding:26px;background:var(--soft);border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
+  .svc:hover{transform:translateY(-4px);box-shadow:0 18px 34px -22px rgba(36,67,255,.5)}
+  .svc .ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;margin-bottom:16px}
+  .svc:nth-child(odd) .ic{background:var(--cobalt)}
+  .svc:nth-child(even) .ic{background:var(--lime)}
+  .svc h3{font-size:1.2rem;font-weight:700;margin-bottom:6px}
+  .svc p{color:var(--muted);font-size:.96rem}
+
+  .proof{background:var(--ink);color:#fff;border-radius:32px;margin:0 12px;padding:56px 0}
+  @media(min-width:900px){.proof{margin:0 24px;padding:80px 0}}
+  .proof .kick{background:rgba(200,244,58,.15);color:var(--lime)}
+  .proof .intro{color:#b4b8d4}
+  .proof-grid{display:grid;gap:14px}
+  @media(min-width:800px){.proof-grid{grid-template-columns:repeat(2,1fr)}}
+  .pq{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:24px}
+  .pq .s{color:var(--lime);letter-spacing:1px}
+  .pq p{font-size:1.06rem;margin:10px 0 12px}
+  .pq footer{color:#9ea3c4;font-weight:600;font-size:.9rem}
+  .proof-top{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+  .big{display:flex;align-items:center;gap:14px}
+  .big .n{font-family:var(--head);font-weight:700;font-size:4rem;line-height:1}
+  .big .s{color:var(--lime);font-size:1.2rem;letter-spacing:1px}
+  .big small{display:block;color:#9ea3c4}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 14px;font-weight:600}
+  .chip i{font-style:normal;color:var(--lime);margin-left:6px}
+  .g-link{display:inline-block;margin-top:22px;font-weight:700;color:var(--lime)}
+
+  .steps{display:grid;gap:14px}
+  @media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .st{display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:var(--r);border:2px dashed var(--line)}
+  .st i{font-style:normal;flex:none;width:42px;height:42px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-family:var(--head);font-weight:700;font-size:1.1rem}
+  .st h3{font-size:1.08rem;margin-bottom:4px}
+  .st p{color:var(--muted);font-size:.95rem}
+
+  .cta-band{background:var(--cobalt);color:#fff;border-radius:32px;padding:40px 26px;display:grid;gap:24px;position:relative;overflow:hidden}
+  @media(min-width:900px){.cta-band{grid-template-columns:1.2fr .8fr;align-items:center;padding:56px}}
+  .cta-band::after{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:var(--lime);right:-70px;top:-90px;opacity:.9}
+  .cta-band > *{position:relative;z-index:1}
+  .cta-band h2{margin-top:0}
+  .cta-band p{color:#dfe4ff}
+  .addr{display:flex;gap:10px;align-items:flex-start;margin-top:16px;color:#dfe4ff}
+  .c-actions{display:grid;gap:12px}
+  .c-actions .btn{padding:17px 20px;font-size:1.05rem}
+
+  footer.site{padding:26px 0;color:var(--muted);font-size:.88rem}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1.3fr 1fr;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line)}
+  .dock .btn{padding:14px 10px}
+  @media(min-width:860px){.dock{display:none}}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Maquette – proposition non officielle</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <span class="mark"><span>A</span></span>
+      <span><span class="logo-name">Carrosserie d'Argenteuil</span><br><span class="logo-sub">1 rue Guy Môquet</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#avis">Avis</a>
+      <a href="#comment">Comment ça marche</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-cobalt" href="tel:+33621769591">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>06 21 76 95 91</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" style="padding:0">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="pill"><b>★ 4,8</b> · 22 avis Google · Argenteuil</span>
+      <h1>Un choc&nbsp;? Une rayure&nbsp;? <mark>On s'en occupe.</mark></h1>
+      <p class="lead">Carrosserie d'Argenteuil répare la carrosserie, refait la peinture et s'occupe de la mécanique de votre voiture.</p>
+      <div class="cta">
+        <a class="btn btn-lime" href="tel:+33621769591">Appeler le 06 21 76 95 91</a>
+        <a class="btn btn-out" href="sms:+33621769591">Envoyer une photo par SMS</a>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="bubble">
+        <div class="who"><span class="av" style="background:#2443ff">R</span><span><b>Rodoine R.</b><small>★★★★★</small></span></div>
+        <p>« Il m'a repeint le pare-choc avant. La couleur correspond et pas de défaut. »</p>
+      </div>
+      <div class="bubble b2">
+        <div class="who"><span class="av" style="background:#0e1230">P</span><span><b>Pierre-Edward P.</b><small>★★★★★</small></span></div>
+        <p>« Accueil, prise en charge, qualité du travail et même le nettoyage offert lors de la restitution. »</p>
+      </div>
+      <span class="score-chip"><span>4,8</span> ★★★★★ sur Google</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <span class="kick">Services</span>
+    <h2>Tout pour remettre votre voiture en état</h2>
+    <p class="intro">Petits détails ou gros impact : appelez ou envoyez une photo pour un devis.</p>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5v3H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+        <h3>Carrosserie</h3><p>Chocs, impacts et petits défauts de carrosserie.</p>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e1230" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11h-4V4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v7H5l7 9z"/></svg></div>
+        <h3>Peinture</h3><p>Remise en peinture, avec une couleur qui correspond.</p>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7V5h10v2M7 12h.01M17 12h.01"/></svg></div>
+        <h3>Pare-chocs</h3><p>Réparation et peinture de pare-chocs.</p>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e1230" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg></div>
+        <h3>Mécanique</h3><p>L'atelier propose aussi la mécanique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof" id="avis">
+  <div class="wrap">
+    <div class="proof-top">
+      <div>
+        <span class="kick">Avis Google</span>
+        <h2 style="margin-bottom:14px">Ils recommandent</h2>
+        <div class="big"><span class="n">4,8</span><span><span class="s">★★★★★</span><small>22 avis sur Google</small></span></div>
+      </div>
+      <div class="chips"><span class="chip">équipe<i>5</i></span><span class="chip">prix<i>5</i></span></div>
+    </div>
+    <div class="proof-grid">
+      <div class="pq"><span class="s">★★★★★</span><p>« Excellent travail, je recommande vivement. J'avais plusieurs petits détails dans la carrosserie et un gros impact sur un côté, tout a été réparé… »</p><footer>Luis R. · avis Google</footer></div>
+      <div class="pq"><span class="s">★★★★★</span><p>« Un immense merci à ce carrossier exceptionnel et à toute son équipe ! Une gentillesse rare, un professionnalisme irréprochable… »</p><footer>Slima M. · avis Google</footer></div>
+      <div class="pq"><span class="s">★★★★★</span><p>« Je recommande. Toute l'équipe bosse bien. Il m'a repeint le pare-choc avant. La couleur correspond et pas de défaut. »</p><footer>Rodoine R. · avis Google</footer></div>
+      <div class="pq"><span class="s">★★★★★</span><p>« Que dire de plus que tout est parfait ? Accueil, prise en charge, qualité du travail et même le nettoyage offert lors de la restitution… »</p><footer>Pierre-Edward P. · avis Google</footer></div>
+    </div>
+    <a class="g-link" href="https://www.google.com/maps/search/?api=1&query=Carrosserie+d%27Argenteuil+1+Rue+Guy+M%C3%B4quet+95100+Argenteuil" target="_blank" rel="noopener">Lire les 22 avis sur Google →</a>
+  </div>
+</section>
+
+<section id="comment">
+  <div class="wrap">
+    <span class="kick">Comment ça marche</span>
+    <h2>Simple, en 3 étapes</h2>
+    <div class="steps" style="margin-top:30px">
+      <div class="st"><i>1</i><div><h3>Une photo</h3><p>Envoyez une photo des dégâts par SMS, ou appelez.</p></div></div>
+      <div class="st"><i>2</i><div><h3>Le devis</h3><p>Vous recevez le prix de la réparation.</p></div></div>
+      <div class="st"><i>3</i><div><h3>La réparation</h3><p>Vous déposez la voiture à l'atelier, rue Guy Môquet.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>On regarde votre voiture&nbsp;?</h2>
+        <p>Appelez ou envoyez une photo par SMS.</p>
+        <div class="addr">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span>1 Rue Guy Môquet, 95100 Argenteuil<br>Horaires à jour sur Google Maps</span>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="btn btn-lime" href="tel:+33621769591">Appeler le 06 21 76 95 91</a>
+        <a class="btn btn-white" href="sms:+33621769591">Envoyer une photo par SMS</a>
+        <a class="btn btn-out" href="https://www.google.com/maps/search/?api=1&query=Carrosserie+d%27Argenteuil+1+Rue+Guy+M%C3%B4quet+95100+Argenteuil" target="_blank" rel="noopener">Itinéraire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span>© Carrosserie d'Argenteuil</span>
+    <span>Maquette réalisée par Syed – 06 18 37 44 98</span>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-cobalt" href="tel:+33621769591">Appeler</a>
+  <a class="btn btn-lime" href="sms:+33621769591">Photo / SMS</a>
+</div>
+
+</body>
+</html>
