@@ -2,7 +2,7 @@
   "name": "Mes apps",
   "short_name": "Mes apps",
   "start_url": "./",
-  "scope": "./",
+  "scope": "../",
   "display": "standalone",
   "background_color": "#06050c",
   "theme_color": "#06050c",

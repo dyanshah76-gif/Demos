@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Compta – Entrées & Sorties</title>
+<script>
+  // Même thème que « Mes apps » (choix enregistré, sinon réglage du téléphone) — appliqué avant l'affichage, pas de flash
+  (function(){ var t=null; try{t=localStorage.getItem('apps-theme')}catch(e){}
+    if(!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+    var m=document.createElement('meta'); m.name='theme-color'; m.content = t==='dark' ? '#06050c' : '#ff7a00'; document.head.appendChild(m); })();
+</script>
 <style>
   :root{--bg:#fff7ec;--card:#fff;--ink:#1d1b2f;--muted:#6b6880;--in:#12a150;--out:#e5484d;--accent:#ff7a00;--accent2:#7c3aed;--line:#f0e4d4}
   *{box-sizing:border-box}
@@ -55,6 +62,19 @@
   .tools button,.tools label{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;font-size:14px;color:var(--ink);cursor:pointer}
   .empty{color:var(--muted);text-align:center;padding:14px 0;font-size:14px}
   .note{font-size:12px;color:var(--muted);margin-top:8px}
+
+  [data-theme=dark]{color-scheme:dark;--bg:#0b0a1f;--card:#17153a;--ink:#f3f1ff;--muted:#9a96b8;--in:#3ddc84;--out:#ff6b70;--accent2:#b79bff;--line:#2a2752}
+  [data-theme=dark] header{background:linear-gradient(135deg,#1a1050,#3b1670 55%,#6a1b5e)}
+  [data-theme=dark] .card{box-shadow:0 6px 24px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.05)}
+  [data-theme=dark] .month button{background:#261a4d}
+  [data-theme=dark] .s-in{background:#0f2e25}[data-theme=dark] .s-out{background:#3a1420}[data-theme=dark] .s-pr{background:#261a4d}
+  [data-theme=dark] .bar{background:#2a2752}[data-theme=dark] .bar div{box-shadow:0 0 12px rgba(255,61,119,.7)}
+  [data-theme=dark] input,[data-theme=dark] select{background:#100e2a}
+  [data-theme=dark] .toggle label:has(input[value=in]:checked){background:#0f2e25}
+  [data-theme=dark] .toggle label:has(input[value=out]:checked){background:#3a1420}
+  [data-theme=dark] .chip{background:#33240e;color:#ffc27a}
+  [data-theme=dark] .tools button,[data-theme=dark] .tools label{background:#100e2a}
+  [data-theme=dark] .del{color:#5d5880}
 </style>
 </head>
 <body>

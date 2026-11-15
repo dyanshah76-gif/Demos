@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Idées pour plus tard</title>
+<script>
+  // Même thème que « Mes apps » (choix enregistré, sinon réglage du téléphone) — appliqué avant l'affichage, pas de flash
+  (function(){ var t=null; try{t=localStorage.getItem('apps-theme')}catch(e){}
+    if(!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+    var m=document.createElement('meta'); m.name='theme-color'; m.content = t==='dark' ? '#06050c' : '#ff7a00'; document.head.appendChild(m); })();
+</script>
 <style>
   :root{--bg:#f2fbff;--ink:#16213a;--muted:#5f6b85;--line:#dcecf5}
   *{box-sizing:border-box}
@@ -30,6 +37,17 @@
   .tools button,.tools label{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;font-size:14px;color:var(--ink);cursor:pointer}
   .note{font-size:12px;color:var(--muted);margin-top:8px}
   .count{font-weight:400;color:var(--muted);font-size:14px}
+
+  [data-theme=dark]{color-scheme:dark;--bg:#0b0a1f;--ink:#f3f1ff;--muted:#9a96b8;--line:#2a2752}
+  [data-theme=dark] header{background:linear-gradient(135deg,#0f1a50,#1d2a7a 50%,#3b1670)}
+  [data-theme=dark] .card{background:#17153a;box-shadow:0 6px 24px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.05)}
+  [data-theme=dark] .lock{background:linear-gradient(90deg,#33280e,#3a1428);color:#ffe3a3}
+  [data-theme=dark] input,[data-theme=dark] textarea{background:#100e2a}
+  [data-theme=dark] .idea{color:#f3f1ff}
+  [data-theme=dark] .c0{background:#33240e}[data-theme=dark] .c1{background:#0f2e25}[data-theme=dark] .c2{background:#261a4d}
+  [data-theme=dark] .c3{background:#2e2a0e}[data-theme=dark] .c4{background:#3a1428}[data-theme=dark] .c5{background:#0f2440}
+  [data-theme=dark] .del{background:rgba(0,0,0,.3);color:#9a96b8}
+  [data-theme=dark] .tools button,[data-theme=dark] .tools label{background:#100e2a}
 </style>
 </head>
 <body>
