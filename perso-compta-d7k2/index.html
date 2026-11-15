@@ -228,5 +228,12 @@ imp.onchange = async e => {
 };
 render();
 </script>
+<script>
+  // Ouvert depuis « Mes apps » : le lien retour ferme le panneau au lieu de recharger une page
+  if (window.top !== window.self) document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href="../perso-apps-d7k2/"]');
+    if (a) { e.preventDefault(); window.parent.postMessage('close-panel', location.origin); }
+  });
+</script>
 </body>
 </html>
