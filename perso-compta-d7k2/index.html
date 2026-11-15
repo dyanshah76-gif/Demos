@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Compta – Entrées & Sorties</title>
+<style>
+  :root{--bg:#fff7ec;--card:#fff;--ink:#1d1b2f;--muted:#6b6880;--in:#12a150;--out:#e5484d;--accent:#ff7a00;--accent2:#7c3aed;--line:#f0e4d4}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+  header{background:linear-gradient(135deg,#ff7a00,#ff3d77 55%,#7c3aed);color:#fff;padding:22px 18px 70px}
+  header h1{margin:0;font-size:22px}
+  header p{margin:4px 0 0;opacity:.9;font-size:14px}
+  main{max-width:640px;margin:-52px auto 40px;padding:0 14px}
+  .card{background:var(--card);border-radius:18px;padding:16px;box-shadow:0 6px 20px rgba(60,30,0,.08);margin-bottom:14px}
+  .month{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .month button{border:0;background:#f4ecff;color:var(--accent2);font-size:20px;width:40px;height:40px;border-radius:12px}
+  .month strong{font-size:18px;text-transform:capitalize}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+  .stat{border-radius:14px;padding:10px;text-align:center}
+  .stat small{display:block;font-size:12px;color:var(--muted)}
+  .stat b{font-size:18px}
+  .s-in{background:#e8f8ef}.s-in b{color:var(--in)}
+  .s-out{background:#fdecec}.s-out b{color:var(--out)}
+  .s-pr{background:#f4ecff}.s-pr b{color:var(--accent2)}
+  .goal{margin-top:14px}
+  .goal .row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+  .bar{height:14px;background:#f1e9df;border-radius:99px;overflow:hidden;margin-top:6px}
+  .bar div{height:100%;background:linear-gradient(90deg,#ff7a00,#ff3d77,#7c3aed);border-radius:99px;transition:width .4s}
+  h2{font-size:16px;margin:0 0 10px}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  form .full{grid-column:1/-1}
+  input,select{width:100%;padding:11px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;background:#fffdf9;color:var(--ink)}
+  .toggle{display:flex;gap:8px}
+  .toggle label{flex:1;text-align:center;padding:11px;border-radius:12px;border:1.5px solid var(--line);font-weight:600;cursor:pointer}
+  .toggle input{display:none}
+  .toggle input[value=in]:checked+span{color:var(--in)}
+  .toggle label:has(input[value=in]:checked){background:#e8f8ef;border-color:var(--in)}
+  .toggle label:has(input[value=out]:checked){background:#fdecec;border-color:var(--out)}
+  .toggle input[value=out]:checked+span{color:var(--out)}
+  button.add{grid-column:1/-1;border:0;padding:13px;border-radius:12px;font-size:16px;font-weight:700;color:#fff;background:linear-gradient(90deg,#ff7a00,#ff3d77)}
+  ul{list-style:none;margin:0;padding:0}
+  li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+  li:last-child{border-bottom:0}
+  .dot{width:10px;height:10px;border-radius:50%;flex:none}
+  .info{flex:1;min-width:0}
+  .info b{display:block;font-size:15px}
+  .info small{color:var(--muted);font-size:12px}
+  .amt{font-weight:700;white-space:nowrap}
+  .del{border:0;background:none;color:#c9c3d6;font-size:18px;padding:4px}
+  .cats{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{background:#fff1e3;color:#a14b00;border-radius:99px;padding:5px 10px;font-size:13px}
+  .tools{display:flex;gap:8px;flex-wrap:wrap}
+  .tools button,.tools label{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;font-size:14px;color:var(--ink);cursor:pointer}
+  .empty{color:var(--muted);text-align:center;padding:14px 0;font-size:14px}
+  .note{font-size:12px;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1>💸 Entrées & Sorties</h1>
+  <p>Objectif : 1 000 € de bénéfice. Rien de nouveau avant.</p>
+</header>
+<main>
+  <section class="card">
+    <div class="month">
+      <button id="prev" aria-label="Mois précédent">‹</button>
+      <strong id="monthLabel"></strong>
+      <button id="next" aria-label="Mois suivant">›</button>
+    </div>
+    <div class="stats">
+      <div class="stat s-in"><small>Entrées</small><b id="sIn">0 €</b></div>
+      <div class="stat s-out"><small>Sorties</small><b id="sOut">0 €</b></div>
+      <div class="stat s-pr"><small>Bénéfice</small><b id="sPr">0 €</b></div>
+    </div>
+    <div class="goal">
+      <div class="row"><span>Vers 1 000 € de bénéfice</span><span id="goalTxt"></span></div>
+      <div class="bar"><div id="goalBar" style="width:0"></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Ajouter</h2>
+    <form id="f">
+      <div class="toggle full">
+        <label><input type="radio" name="type" value="in" checked><span>+ Entrée</span></label>
+        <label><input type="radio" name="type" value="out"><span>− Sortie</span></label>
+      </div>
+      <input id="amount" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Montant €" required>
+      <input id="date" type="date" required>
+      <select id="cat" class="full">
+        <option>Phares</option>
+        <option>Cartes NFC</option>
+        <option>Lavage / Polish</option>
+        <option>Matériel</option>
+        <option>Produits</option>
+        <option>Déplacement</option>
+        <option>Pub / Marketing</option>
+        <option>Autre</option>
+      </select>
+      <input id="note" class="full" placeholder="Note (client, produit…)">
+      <button class="add" type="submit">Enregistrer</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Par catégorie</h2>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <section class="card">
+    <h2>Mouvements du mois</h2>
+    <ul id="list"></ul>
+  </section>
+
+  <section class="card">
+    <h2>Sauvegarde</h2>
+    <div class="tools">
+      <button id="exp">⬇️ Exporter</button>
+      <label>⬆️ Importer<input id="imp" type="file" accept="application/json" hidden></label>
+    </div>
+    <p class="note">Tes chiffres restent dans ce navigateur, sur cet appareil (rien n'est envoyé sur GitHub). Exporte de temps en temps pour garder une copie ou passer sur un autre appareil.</p>
+  </section>
+</main>
+
+<script>
+const KEY = 'compta-business-v1';
+const SEED = [
+  {id:1, type:'in',  amount:60,  date:'2026-11-01', cat:'Phares',     note:'Client phares (date approx.)'},
+  {id:2, type:'in',  amount:20,  date:'2026-11-01', cat:'Phares',     note:'Client phares (date approx.)'},
+  {id:3, type:'in',  amount:90,  date:'2026-11-01', cat:'Phares',     note:'Client phares (date approx.)'},
+  {id:4, type:'in',  amount:130, date:'2026-11-14', cat:'Phares',     note:'Phares + upsell céramique baguettes'},
+  {id:5, type:'in',  amount:40,  date:'2026-11-14', cat:'Cartes NFC', note:'2 cartes à 20 € (démarchage)'},
+  {id:6, type:'out', amount:12,  date:'2026-11-01', cat:'Produits',   note:'Papier de verre grain 800 (date approx.)'}
+];
+let data;
+try { data = JSON.parse(localStorage.getItem(KEY)); } catch(e) { data = null; }
+if (!Array.isArray(data)) { data = SEED.slice(); save(); }
+
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e) {} }
+const eur = n => (Math.round(n*100)/100).toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:2}) + ' €';
+const today = new Date();
+let view = new Date(today.getFullYear(), today.getMonth(), 1);
+document.getElementById('date').value = today.toISOString().slice(0,10);
+
+function ym(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0'); }
+
+function render(){
+  const key = ym(view);
+  document.getElementById('monthLabel').textContent = view.toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
+  const rows = data.filter(r => r.date.slice(0,7) === key).sort((a,b) => b.date.localeCompare(a.date) || b.id - a.id);
+  const tin = rows.filter(r=>r.type==='in').reduce((s,r)=>s+r.amount,0);
+  const tout = rows.filter(r=>r.type==='out').reduce((s,r)=>s+r.amount,0);
+  const pr = tin - tout;
+  sIn.textContent = eur(tin); sOut.textContent = eur(tout); sPr.textContent = eur(pr);
+  const pct = Math.max(0, Math.min(100, pr/10));
+  goalBar.style.width = pct + '%';
+  goalTxt.textContent = pr >= 1000 ? '🎉 Atteint !' : 'reste ' + eur(1000 - pr);
+
+  const byCat = {};
+  rows.forEach(r => { byCat[r.cat] = (byCat[r.cat]||0) + (r.type==='in' ? r.amount : -r.amount); });
+  cats.innerHTML = Object.keys(byCat).length
+    ? Object.entries(byCat).map(([c,v]) => `<span class="chip">${c} : ${v>=0?'+':''}${eur(v)}</span>`).join('')
+    : '<span class="empty">Rien ce mois-ci</span>';
+
+  list.innerHTML = rows.length ? rows.map(r => `
+    <li>
+      <span class="dot" style="background:${r.type==='in'?'var(--in)':'var(--out)'}"></span>
+      <div class="info"><b>${esc(r.cat)}</b><small>${new Date(r.date+'T12:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short'})}${r.note ? ' · ' + esc(r.note) : ''}</small></div>
+      <span class="amt" style="color:${r.type==='in'?'var(--in)':'var(--out)'}">${r.type==='in'?'+':'−'}${eur(r.amount)}</span>
+      <button class="del" data-id="${r.id}" aria-label="Supprimer">✕</button>
+    </li>`).join('') : '<li class="empty">Aucun mouvement ce mois-ci</li>';
+}
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+f.addEventListener('submit', e => {
+  e.preventDefault();
+  const amount = parseFloat(document.getElementById('amount').value);
+  if (!(amount > 0)) return;
+  const d = document.getElementById('date').value;
+  data.push({ id: Date.now(), type: f.type.value, amount, date: d, cat: document.getElementById('cat').value, note: document.getElementById('note').value.trim() });
+  save();
+  const dd = new Date(d+'T12:00'); view = new Date(dd.getFullYear(), dd.getMonth(), 1);
+  document.getElementById('amount').value = ''; document.getElementById('note').value = '';
+  render();
+});
+list.addEventListener('click', e => {
+  const b = e.target.closest('.del'); if (!b) return;
+  const r = data.find(x => x.id == b.dataset.id);
+  if (r && confirm('Supprimer ' + r.cat + ' ' + eur(r.amount) + ' ?')) { data = data.filter(x => x !== r); save(); render(); }
+});
+prev.onclick = () => { view = new Date(view.getFullYear(), view.getMonth()-1, 1); render(); };
+next.onclick = () => { view = new Date(view.getFullYear(), view.getMonth()+1, 1); render(); };
+exp.onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
+  a.download = 'compta-' + today.toISOString().slice(0,10) + '.json'; a.click();
+};
+imp.onchange = async e => {
+  const file = e.target.files[0]; if (!file) return;
+  try { const d = JSON.parse(await file.text()); if (Array.isArray(d)) { data = d; save(); render(); } } catch(err) { alert('Fichier invalide'); }
+};
+render();
+</script>
+</body>
+</html>

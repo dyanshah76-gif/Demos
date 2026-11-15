@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Idées pour plus tard</title>
+<style>
+  :root{--bg:#f2fbff;--ink:#16213a;--muted:#5f6b85;--line:#dcecf5}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+  header{background:linear-gradient(135deg,#00b4d8,#3a86ff 50%,#8338ec);color:#fff;padding:22px 18px 70px}
+  header h1{margin:0;font-size:22px}
+  header p{margin:4px 0 0;opacity:.92;font-size:14px}
+  main{max-width:640px;margin:-52px auto 40px;padding:0 14px}
+  .card{background:#fff;border-radius:18px;padding:16px;box-shadow:0 6px 20px rgba(0,40,80,.08);margin-bottom:14px}
+  .lock{background:linear-gradient(90deg,#fff3c4,#ffe0ec);border-radius:14px;padding:12px 14px;font-weight:600;font-size:14px}
+  h2{font-size:16px;margin:0 0 10px}
+  form{display:grid;gap:8px}
+  input,textarea{width:100%;padding:11px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;font-family:inherit;color:var(--ink);background:#fbfeff}
+  textarea{min-height:70px;resize:vertical}
+  button.add{border:0;padding:13px;border-radius:12px;font-size:16px;font-weight:700;color:#fff;background:linear-gradient(90deg,#3a86ff,#8338ec)}
+  .idea{border-radius:16px;padding:14px;margin-bottom:10px;position:relative;color:#16213a}
+  .idea h3{margin:0 0 4px;font-size:16px;padding-right:30px}
+  .idea p{margin:0;font-size:14px;line-height:1.45;white-space:pre-wrap}
+  .idea small{display:block;margin-top:8px;color:var(--muted);font-size:12px}
+  .del{position:absolute;top:10px;right:10px;border:0;background:rgba(255,255,255,.7);border-radius:50%;width:28px;height:28px;color:#8a8fa3;font-size:15px}
+  .c0{background:#ffe8d6}.c1{background:#e0f7ec}.c2{background:#ece4ff}.c3{background:#fff4c2}.c4{background:#ffe0ea}.c5{background:#dff3ff}
+  .tools{display:flex;gap:8px;flex-wrap:wrap}
+  .tools button,.tools label{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;font-size:14px;color:var(--ink);cursor:pointer}
+  .note{font-size:12px;color:var(--muted);margin-top:8px}
+  .count{font-weight:400;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🧊 Idées pour plus tard</h1>
+  <p>On écrit, on ferme, on n'y pense plus.</p>
+</header>
+<main>
+  <section class="card">
+    <div class="lock">🔒 Gelé jusqu'à 1 000 € de bénéfice. Écrire une idée ici, ce n'est pas la commencer.</div>
+  </section>
+
+  <section class="card">
+    <h2>Noter une idée</h2>
+    <form id="f">
+      <input id="title" placeholder="L'idée en quelques mots" required>
+      <textarea id="details" placeholder="Détails (optionnel)"></textarea>
+      <button class="add" type="submit">Mettre au congélateur</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Au congélateur <span class="count" id="count"></span></h2>
+    <div id="list"></div>
+  </section>
+
+  <section class="card">
+    <h2>Sauvegarde</h2>
+    <div class="tools">
+      <button id="exp">⬇️ Exporter</button>
+      <label>⬆️ Importer<input id="imp" type="file" accept="application/json" hidden></label>
+    </div>
+    <p class="note">Tes idées restent dans ce navigateur, sur cet appareil. Exporte pour garder une copie.</p>
+  </section>
+</main>
+
+<script>
+const KEY = 'idees-plus-tard-v1';
+const SEED = [
+  {id:1, title:'Montres – marque perso', details:'2 modèles personnalisés sur Alibaba (à partir des montres AliExpress qui me valent des compliments).\nRevente : Leboncoin, Vinted, vidéos TikTok. Prix visé 60–90 €.', date:'2026-10-31'},
+  {id:2, title:'Lampes imprimées en 3D', details:'Imprimante Elegoo Centauri Carbon 2 (pas achetée). Lampes complètes : structure imprimée, poncée et polie + douille, câble, ampoule.\nVente : Etsy, Leboncoin Pro, TikTok Shop, local + DM Instagram. Budget < 500 €.', date:'2026-11-02'},
+  {id:3, title:'Sites web pour commerces locaux', details:'Démo générée avec Gemini, mise sur GitHub Pages, envoyée par WhatsApp. 79 € une fois (ou maintenance mensuelle). Premiers prospects : plombiers.', date:'2026-11-03'},
+  {id:4, title:'Restauration de meubles / bois', details:'Premier projet commencé : caisson de bureau 2 tiroirs. Pistolet à peinture sur visseuse à voir plus tard.', date:'2026-11-11'},
+  {id:5, title:'PPF sur les phares', details:'Ajouter la pose de film de protection (PPF) après rénovation. Débutant en PPF.', date:'2026-11-15'}
+];
+let data;
+try { data = JSON.parse(localStorage.getItem(KEY)); } catch(e) { data = null; }
+if (!Array.isArray(data)) { data = SEED.slice(); save(); }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e) {} }
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function render(){
+  const rows = data.slice().sort((a,b) => b.date.localeCompare(a.date) || b.id - a.id);
+  count.textContent = '(' + rows.length + ')';
+  list.innerHTML = rows.map((r,i) => `
+    <div class="idea c${r.id % 6}">
+      <button class="del" data-id="${r.id}" aria-label="Supprimer">✕</button>
+      <h3>${esc(r.title)}</h3>
+      ${r.details ? `<p>${esc(r.details)}</p>` : ''}
+      <small>Noté le ${new Date(r.date+'T12:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</small>
+    </div>`).join('') || '<p class="note">Rien pour l\'instant.</p>';
+}
+f.addEventListener('submit', e => {
+  e.preventDefault();
+  const t = title.value.trim(); if (!t) return;
+  data.push({ id: Date.now(), title: t, details: details.value.trim(), date: new Date().toISOString().slice(0,10) });
+  save(); title.value = ''; details.value = ''; render();
+});
+list.addEventListener('click', e => {
+  const b = e.target.closest('.del'); if (!b) return;
+  const r = data.find(x => x.id == b.dataset.id);
+  if (r && confirm('Supprimer « ' + r.title + ' » ?')) { data = data.filter(x => x !== r); save(); render(); }
+});
+exp.onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
+  a.download = 'idees-' + new Date().toISOString().slice(0,10) + '.json'; a.click();
+};
+imp.onchange = async e => {
+  const file = e.target.files[0]; if (!file) return;
+  try { const d = JSON.parse(await file.text()); if (Array.isArray(d)) { data = d; save(); render(); } } catch(err) { alert('Fichier invalide'); }
+};
+render();
+</script>
+</body>
+</html>
