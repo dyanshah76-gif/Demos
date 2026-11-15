@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mes apps">
+<meta name="theme-color" content="#ff7a00">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<title>Mes apps</title>
+<style>
+  :root{--bg:#fffaf3;--ink:#1d1b2f;--muted:#6b6880}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+  header{background:linear-gradient(135deg,#ff7a00,#ff3d77 50%,#7c3aed);color:#fff;padding:26px 18px 74px}
+  header h1{margin:0;font-size:24px}
+  header p{margin:4px 0 0;opacity:.9;font-size:14px}
+  main{max-width:640px;margin:-54px auto 40px;padding:0 14px}
+  .goal{background:#fff;border-radius:20px;padding:16px;box-shadow:0 6px 20px rgba(60,30,0,.08);margin-bottom:16px;display:block;text-decoration:none;color:inherit}
+  .goal .row{display:flex;justify-content:space-between;align-items:baseline}
+  .goal b{font-size:26px;color:#7c3aed}
+  .goal small{color:var(--muted);font-size:13px}
+  .bar{height:14px;background:#f1e9df;border-radius:99px;overflow:hidden;margin-top:10px}
+  .bar div{height:100%;width:0;background:linear-gradient(90deg,#ff7a00,#ff3d77,#7c3aed);border-radius:99px;transition:width .6s}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:22px 4px 10px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  a.app{display:flex;flex-direction:column;gap:6px;padding:16px;border-radius:20px;text-decoration:none;color:var(--ink);min-height:120px;box-shadow:0 4px 14px rgba(0,0,0,.05);transition:transform .15s}
+  a.app:active{transform:scale(.97)}
+  .app .ic{font-size:30px}
+  .app b{font-size:16px}
+  .app span{font-size:13px;color:#4a475c;line-height:1.35}
+  .c1{background:#e8f8ef}.c2{background:#e0f2ff}.c3{background:#fff1d6}.c4{background:#f0e8ff}.c5{background:#ffe3ec}
+</style>
+</head>
+<body>
+<header>
+  <h1>🚀 Mes apps</h1>
+  <p id="hello">Une seule mission : 1 000 € de bénéfice.</p>
+</header>
+<main>
+  <a class="goal" href="../perso-compta-d7k2/">
+    <div class="row"><small id="gMonth">Bénéfice du mois</small><small id="gLeft"></small></div>
+    <b id="gProfit">—</b>
+    <div class="bar"><div id="gBar"></div></div>
+  </a>
+
+  <h2>Business</h2>
+  <div class="grid">
+    <a class="app c1" href="../perso-compta-d7k2/"><span class="ic">💸</span><b>Entrées & Sorties</b><span>Chaque euro, le jour même</span></a>
+    <a class="app c2" href="../perso-idees-d7k2/"><span class="ic">🧊</span><b>Idées plus tard</b><span id="ideasTxt">Gelées jusqu'à 1 000 €</span></a>
+    <a class="app c3" href="https://renovphare.fr" target="_blank" rel="noopener"><span class="ic">🔦</span><b>Renovphare</b><span>Mon site — renovphare.fr</span></a>
+  </div>
+
+  <h2>Deen</h2>
+  <div class="grid">
+    <a class="app c4" href="https://dyanshah76-gif.github.io/Quran/"><span class="ic">📖</span><b>Coran</b><span>Lecture du Coran</span></a>
+    <a class="app c5" href="https://dyanshah76-gif.github.io/Quran/adhkar.html"><span class="ic">📿</span><b>Adhkar</b><span>Matin, soir & après la prière</span></a>
+  </div>
+</main>
+<script>
+// Même domaine (dyanshah76-gif.github.io) : on lit les données des autres apps, sur cet appareil.
+const eur = n => (Math.round(n*100)/100).toLocaleString('fr-FR',{maximumFractionDigits:2}) + ' €';
+try {
+  const now = new Date();
+  const key = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
+  document.getElementById('gMonth').textContent = 'Bénéfice · ' + now.toLocaleDateString('fr-FR',{month:'long'});
+  const rows = JSON.parse(localStorage.getItem('compta-business-v1') || 'null');
+  if (Array.isArray(rows)) {
+    const p = rows.filter(r => r.date.slice(0,7) === key).reduce((s,r) => s + (r.type === 'in' ? r.amount : -r.amount), 0);
+    gProfit.textContent = eur(p);
+    gLeft.textContent = p >= 1000 ? '🎉 Objectif atteint' : 'reste ' + eur(1000 - p);
+    setTimeout(() => gBar.style.width = Math.max(0, Math.min(100, p/10)) + '%', 100);
+  } else {
+    gProfit.textContent = 'Ouvre la compta une fois';
+  }
+  const ideas = JSON.parse(localStorage.getItem('idees-plus-tard-v1') || 'null');
+  if (Array.isArray(ideas)) ideasTxt.textContent = ideas.length + ' idées gelées jusqu\'à 1 000 €';
+} catch(e) {}
+</script>
+</body>
+</html>
